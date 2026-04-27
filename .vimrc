@@ -4,6 +4,5 @@ filetype plugin indent on
 set autoindent
 set smartindent
 set tabstop=4
-set shiftwidth=4 
-set makeprg=g++\ -Werror\ -std=c++20\ -o\ %:r\ %\ &&\ ./%:r
-nnoremap <F5> :make<CR>
+set shiftwidth=4
+nnoremap <F5> :w <bar> :!g++ -Werror -std=c++20 -o %:r % && ./%:r<CR>
