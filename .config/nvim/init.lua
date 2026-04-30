@@ -8,21 +8,22 @@ vim.opt.smartindent = true
 --Keybinds
 vim.g.mapleader = " "
 vim.keymap.set("n", '<leader>cd', vim.cmd.Ex)
-vim.keymap.set("n", '<F5>', ':w<CR>:!g++ -Werror -Wall -Pedantic -std=c++20 -o main * && ./%r<CR>')
+vim.keymap.set("n", '<F5>', ':w<CR>:!g++ -Werror -Wall -pedantic -std=c++20 -o main * && ./main<CR>')
 vim.keymap.set("n", '<leader>fb', ':NvimTreeToggle<CR>') --Toggles File Tree
 vim.keymap.set("n", '<leader>fq', ':NvimTreeFocus<CR>' ) --Focuses File Tree
 
 
 --Add Packages
 vim.pack.add({
-	'https://github.com/nvim-tree/nvim-web-devicons',
-	'https://github.com/nvim-treesitter/nvim-treesitter',
-	'https://github.com/rebelot/kanagawa.nvim',
-	'https://github.com/mason-org/mason.nvim',
-	'https://github.com/nvim-tree/nvim-tree.lua',
-	'https://github.com/ibhagwan/fzf-lua',
-	'https://github.com/nvim-lualine/lualine.nvim',
-	'https://github.com/lukas-reineke/indent-blankline.nvim'
+	'https://github.com/nvim-tree/nvim-web-devicons', -- icons for formatting
+	'https://github.com/nvim-treesitter/nvim-treesitter', -- features?
+	'https://github.com/rebelot/kanagawa.nvim', -- theme "Kanagawa"
+	'https://github.com/mason-org/mason.nvim', -- lsp installer
+	'https://github.com/nvim-tree/nvim-tree.lua', -- embedded file tree
+	'https://github.com/ibhagwan/fzf-lua', -- fuzzy finder
+	'https://github.com/nvim-lualine/lualine.nvim', --bottom bar
+	'https://github.com/lukas-reineke/indent-blankline.nvim', -- tab blocking
+	'https://github.com/neovim/nvim-lspconfig' -- lsp
 })
 
 --setups
@@ -36,7 +37,7 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.wo[0][0].foldmethod = 'expr'
 	end
 })
-
+vim.lsp.enable('clangd')
 require("ibl").setup()
 require("nvim-tree").setup()
 require("mason").setup()

@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "coq_nvim": {
+      "rev": "bcc1bf327b98042e6a77a9637cd465cbceca2679",
+      "src": "https://github.com/ms-jpq/coq_nvim"
+    },
     "fzf-lua": {
       "rev": "b437bafc981a180d609bb4092c56ce8999f7a2c4",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -19,6 +23,14 @@
     "mason.nvim": {
       "rev": "cb8445f8ce85d957416c106b780efd51c6298f89",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "nvim-cmp": {
+      "rev": "a1d504892f2bc56c2e79b65c6faded2fd21f3eca",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
+    },
+    "nvim-lspconfig": {
+      "rev": "f7e89f3d19fb436e1fbeff3bf4291eef35da94e3",
+      "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-tree.lua": {
       "rev": "24cfcc94372e526fd9e1c2803ede9e0f1715e33f",
