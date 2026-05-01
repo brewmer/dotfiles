@@ -1,14 +1,18 @@
 --Options
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.relativenumber = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
+vim.opt.autochdir = true
 --Keybinds
 vim.g.mapleader = " "
 vim.keymap.set("n", '<leader>cd', vim.cmd.Ex)
-vim.keymap.set("n", '<F5>', ':w<CR>:!g++ -Werror -Wall -pedantic -std=c++20 -o main * && ./main<CR>')
+vim.keymap.set("n", '<F5>', ':w<CR>:!g++ -Werror -Wall -pedantic -std=c++20 -o main * && :tabnew<CR> :terminal<CR>')
 vim.keymap.set("n", '<leader>fb', ':NvimTreeToggle<CR>') --Toggles File Tree
 vim.keymap.set("n", '<leader>fq', ':NvimTreeFocus<CR>' ) --Focuses File Tree
 
