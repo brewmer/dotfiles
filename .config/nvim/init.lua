@@ -23,14 +23,14 @@ vim.pack.add({
 	'https://github.com/ibhagwan/fzf-lua', -- fuzzy finder
 	'https://github.com/nvim-lualine/lualine.nvim', --bottom bar
 	'https://github.com/lukas-reineke/indent-blankline.nvim', -- tab blocking
-	'https://github.com/neovim/nvim-lspconfig' -- lsp
+	'https://github.com/neovim/nvim-lspconfig',-- lsp
 })
 
 --setups
 --
 --Treesitter
 vim.api.nvim_create_autocmd('FileType', {
-	pattern = { '<filetype>' },
+	pattern = { 'c++' },
 	callback = function() 
 		vim.treesitter.start()
 		vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
