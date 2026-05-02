@@ -9,11 +9,13 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
 vim.opt.autochdir = true
+vim.opt.clipboard:append("unnamedplus")
 --Keybinds
 vim.g.mapleader = " "
 vim.keymap.set("n", '<leader>cd', vim.cmd.Ex)
-vim.keymap.set("n", '<F5>', ':w<CR>:!g++ -Werror -Wall -pedantic -std=c++20 -o main * && :tabnew<CR> :terminal<CR>')
+vim.keymap.set("n", '<F5>', ':w<CR>:!g++ -Werror -Wall -pedantic -std=c++20 -o main *.cpp <CR>') --compile c++
 vim.keymap.set("n", '<leader>fb', ':NvimTreeToggle<CR>') --Toggles File Tree
+vim.keymap.set("n", '<F6>', ':tabnew <CR>:terminal<CR>') -- open terminal
 vim.keymap.set("n", '<leader>fq', ':NvimTreeFocus<CR>' ) --Focuses File Tree
 
 
@@ -28,6 +30,7 @@ vim.pack.add({
 	'https://github.com/nvim-lualine/lualine.nvim', --bottom bar
 	'https://github.com/lukas-reineke/indent-blankline.nvim', -- tab blocking
 	'https://github.com/neovim/nvim-lspconfig',-- lsp
+	'https://github.com/m4xshen/autoclose.nvim' -- autoclose brackets
 })
 
 --setups
@@ -40,6 +43,12 @@ vim.api.nvim_create_autocmd('FileType', {
 	end
 })
 vim.lsp.enable('clangd')
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+})
+require("autoclose").setup()
 require("ibl").setup()
 require("nvim-tree").setup()
 require("mason").setup()
