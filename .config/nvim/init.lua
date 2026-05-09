@@ -24,13 +24,16 @@ vim.pack.add({
 	'https://github.com/nvim-tree/nvim-web-devicons', -- icons for formatting
 	'https://github.com/nvim-treesitter/nvim-treesitter', -- features?
 	'https://github.com/rebelot/kanagawa.nvim', -- theme "Kanagawa"
+	'https://github.com/catppuccin/nvim', -- theme catppuccin
+	'https://github.com/sainnhe/gruvbox-material', -- theme gruvbox-material
 	'https://github.com/mason-org/mason.nvim', -- lsp installer
 	'https://github.com/nvim-tree/nvim-tree.lua', -- embedded file tree
 	'https://github.com/ibhagwan/fzf-lua', -- fuzzy finder
 	'https://github.com/nvim-lualine/lualine.nvim', --bottom bar
 	'https://github.com/lukas-reineke/indent-blankline.nvim', -- tab blocking
 	'https://github.com/neovim/nvim-lspconfig',-- lsp
-	'https://github.com/m4xshen/autoclose.nvim' -- autoclose brackets
+	'https://github.com/m4xshen/autoclose.nvim', -- autoclose brackets
+	'https://github.com/romgrk/barbar.nvim', -- tabline bar
 })
 
 --setups
@@ -42,7 +45,11 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.treesitter.start()
 	end
 })
+
+--LSP and autocomplete
+--
 vim.lsp.enable('clangd')
+vim.opt.autocomplete = true -- Set up autocomplete
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
@@ -54,13 +61,14 @@ require("nvim-tree").setup()
 require("mason").setup()
 require("fzf-lua").setup()
 require("lualine").setup({
-	options = {theme = 'kanagawa'}
+	options = {theme = 'gruvbox-material'}
 })
 
 --Color scheme
-vim.cmd("colorscheme kanagawa")
-vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
-vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
-vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
-vim.api.nvim_set_hl(0, "LineNr", {bg = "none"})
-vim.api.nvim_set_hl(0, "CursorLineNr", {bg = "none"})
+vim.cmd("colorscheme gruvbox-material")
+--Uncomment to turn background see-thru
+--vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+--vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+--vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+--vim.api.nvim_set_hl(0, "LineNr", {bg = "none"})
+--vim.api.nvim_set_hl(0, "CursorLineNr", {bg = "none"})
